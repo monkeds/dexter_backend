@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.monkeds.dexter.mappers.UserMapper">
+
+	<select id="getById" parameterType="String" resultType="com.monkeds.dexter.entity.User">
+		SELECT
+		*
+		FROM USER
+		WHERE id = #{id}
+	</select>
+
+	<select id="getByCredentials" parameterType="User"
+		resultType="com.monkeds.dexter.entity.User">
+		SELECT
+		*
+		FROM USER
+		WHERE email=#{email}
+		AND password= #{password}
+	</select>
+
+
+
+	<insert id="insert" parameterType="User" >
+		INSERT INTO USER (id, nick, email, password,state) 
+		VALUES (#{id}, #{nick}, #{email}, #{password},#{state})
+	</insert>
+
+	<update id="updateUser" parameterType="User">
+		UPDATE USER
+		SET
+		id = #{id},
+		nick = #{nick},
+		email = #{email},
+		password = #{password},
+		state = #{state}
+		WHERE id = #{id}
+	</update>
+
+
+
+</mapper>
