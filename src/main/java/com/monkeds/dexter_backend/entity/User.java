@@ -1,9 +1,14 @@
-package com.monkeds.dexter.entity;
+package com.monkeds.dexter_backend.entity;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class User implements Serializable{
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.monkeds.dexter_backend.utilities.ResultMessage;
+
+@XmlRootElement
+public class User extends ResultMessage implements Serializable {
 
 	/**
 	 * 

@@ -1,11 +1,15 @@
 package com.monkeds.dexter.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.monkeds.dexter.entity.User;
+import com.monkeds.dexter_backend.dao.UserDAO;
+import com.monkeds.dexter_backend.entity.User;
 
 public class UserDaoTest {
 
@@ -38,7 +42,7 @@ public class UserDaoTest {
 	public void testGetUserByCredentials() {
 		User user = null;
 		try {
-			user = userDAO.getByCredentials(new User("medient@hotmail.com","1234"));
+			user = userDAO.getByCredentials("medient@hotmail.com","1234");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

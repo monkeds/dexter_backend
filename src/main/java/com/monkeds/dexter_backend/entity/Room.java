@@ -1,4 +1,4 @@
-package com.monkeds.dexter.entity;
+package com.monkeds.dexter_backend.entity;
 
 import java.io.Serializable;
 

@@ -5,7 +5,8 @@
 <configuration>
 	<properties resource="jdbc.properties" />
 	<typeAliases>
-		<typeAlias type="com.monkeds.dexter.entity.User" alias="User"></typeAlias>
+		<typeAlias type="com.monkeds.dexter_backend.entity.User" alias="User"></typeAlias>
+		<typeAlias type="com.monkeds.dexter_backend.entity.Room" alias="Room"></typeAlias>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -19,7 +20,7 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/monkeds/dexter/mappers/UserMapper.xml" />
-		<mapper resource="com/monkeds/dexter/mappers/RoomMapper.xml"/>
+		<mapper resource="com/monkeds/dexter_backend/mappers/UserMapper.xml" />
+		<mapper resource="com/monkeds/dexter_backend/mappers/RoomMapper.xml"/>
 	</mappers>
 </configuration>

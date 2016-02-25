@@ -1,13 +1,13 @@
-package com.monkeds.dexter.dao;
+package com.monkeds.dexter_backend.dao;
 
 import java.util.Collections;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.monkeds.dexter.entity.Room;
-import com.monkeds.dexter.mappers.RoomMapper;
-import com.monkeds.dexter.utilities.MyBatisUtil;
+import com.monkeds.dexter_backend.entity.Room;
+import com.monkeds.dexter_backend.mappers.RoomMapper;
+import com.monkeds.dexter_backend.utilities.MyBatisUtil;
 
 public class RoomDAO {
 	

@@ -7,7 +7,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.monkeds.dexter.entity.Room;
+import com.monkeds.dexter_backend.dao.RoomDAO;
+import com.monkeds.dexter_backend.entity.Room;
 
 public class RoomDAOTest {
 

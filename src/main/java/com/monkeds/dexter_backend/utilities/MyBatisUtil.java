@@ -1,4 +1,4 @@
-package com.monkeds.dexter.utilities;
+package com.monkeds.dexter_backend.utilities;
 import java.io.IOException;
 import java.io.Reader;
 import org.apache.ibatis.io.Resources;

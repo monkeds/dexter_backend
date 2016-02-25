@@ -1,10 +1,13 @@
-package com.monkeds.dexter.dao;
+package com.monkeds.dexter_backend.dao;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.monkeds.dexter.entity.User;
-import com.monkeds.dexter.mappers.UserMapper;
-import com.monkeds.dexter.utilities.MyBatisUtil;
+import com.monkeds.dexter_backend.entity.User;
+import com.monkeds.dexter_backend.mappers.UserMapper;
+import com.monkeds.dexter_backend.utilities.MyBatisUtil;
 
 public class UserDAO {
 	
@@ -21,11 +24,14 @@ public class UserDAO {
 		}
 	}
 	
-	public User getByCredentials(User user) throws Exception {
+	public User getByCredentials(String email, String password) throws Exception {
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 		try {
 			UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-			return mapper.getByCredentials(user);
+			Map<String, String> credentials = new HashMap<>();
+			credentials.put("email", email);
+			credentials.put("password",password);
+			return mapper.getByCredentials(credentials);
 		}catch(Exception ex){
 			throw new Exception(ex); //poner excepcion personalizada
 		}

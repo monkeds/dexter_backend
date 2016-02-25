@@ -2,18 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.monkeds.dexter.mappers.UserMapper">
+<mapper namespace="com.monkeds.dexter_backend.mappers.UserMapper">
 
-	<select id="getById" parameterType="String" resultType="com.monkeds.dexter.entity.User">
-		SELECT
+	<select id="getById" parameterType="String" resultType="User">
+		SELECT 
 		*
 		FROM USER
 		WHERE id = #{id}
 	</select>
 
-	<select id="getByCredentials" parameterType="User"
-		resultType="com.monkeds.dexter.entity.User">
-		SELECT
+	<select id="getByCredentials" parameterType="map" 
+		resultType="User">
+		SELECT 
 		*
 		FROM USER
 		WHERE email=#{email}
