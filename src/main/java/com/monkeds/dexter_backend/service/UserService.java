@@ -8,8 +8,8 @@ public interface UserService {
 	
 	public Response getByCredentials(String email,String password);
 	
-	
-	public User getById(String id);
+	public Response insert(String nick,String email,String password,String state);
 
+	public User getById(String id);
 
 }

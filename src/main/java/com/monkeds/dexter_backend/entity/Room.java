@@ -9,7 +9,7 @@ public class Room implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String id;
+	private Integer id;
 	private String userid_1;
 	private String userid_2;
 	private String userid_creator;
@@ -19,10 +19,12 @@ public class Room implements Serializable{
 	private String user_display;
 	private User userDisplay;
 	
-	public String getId() {
+	
+	
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getUserid_1() {

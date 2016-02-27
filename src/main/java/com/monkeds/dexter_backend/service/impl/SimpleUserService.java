@@ -1,6 +1,11 @@
 package com.monkeds.dexter_backend.service.impl;
 
+import java.util.UUID;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -50,7 +55,6 @@ public class SimpleUserService implements UserService{
 		try{
 			result = userDAO.getByCredentials(email,password);
 		}catch(Exception e){
-//			e.printStackTrace();
 			return Response.serverError().entity(new ResultMessage(500,"El sistema no pudo procesar la solicitud")).build();
 		}
 		
@@ -66,6 +70,33 @@ public class SimpleUserService implements UserService{
 	
 
 	@Override
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public Response insert(@FormParam("nick") String nick, 
+			@FormParam("email") String email, 
+			@FormParam("password") String password, 
+			@FormParam("state") String state) {
+		System.out.println(" nick "+nick);
+		System.out.println(" email "+email);
+		System.out.println(" password "+password);
+		System.out.println(" state "+User.STATE_ACTIVE);
+//		state = state==null? User.STATE_ACTIVE: state;
+		state = User.STATE_ACTIVE;
+		User user = new User(generateId(),nick, email, password, state);
+		try{
+			userDAO.insert(user);
+			return Response.ok().entity(new ResultMessage(200,"El usuario se registro exitosamente")).build();
+		}catch(Exception e){
+			e.printStackTrace();
+			return Response.serverError().entity(new ResultMessage(500,"El sistema no pudo procesar la solicitud")).build();
+		}
+	}
+
+
+	
+
+	@Override
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -77,8 +108,14 @@ public class SimpleUserService implements UserService{
 			return null;
 		}
 	}
-
-
+	
+	
+	private String generateId(){
+		String result = "";
+		result = UUID.randomUUID().toString();
+		System.out.println(result);
+		return result;
+	}
 	
 
 }

@@ -14,6 +14,9 @@ public class User extends ResultMessage implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public static final String STATE_ACTIVE= "active";
+	public static final String STATE_INACTIVE= "inactive";
+	
 	private String id;
 	private String nick;
 	private String email;
@@ -26,6 +29,25 @@ public class User extends ResultMessage implements Serializable {
 		
 	}
 	
+	
+	
+	
+	
+	
+	public User(String id, String nick, String email, String password, String state) {
+		super();
+		this.id = id;
+		this.nick = nick;
+		this.email = email;
+		this.password = password;
+		this.state = state;
+	}
+
+
+
+
+
+
 	public User(String email,String password){
 		this.email = email;
 		this.password = password;

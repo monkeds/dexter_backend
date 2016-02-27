@@ -33,7 +33,7 @@ public class UserDAO {
 			credentials.put("password",password);
 			return mapper.getByCredentials(credentials);
 		}catch(Exception ex){
-			throw new Exception(ex); //poner excepcion personalizada
+			throw ex;
 		}
 		finally {
 			sqlSession.close();
@@ -47,7 +47,6 @@ public class UserDAO {
 			mapper.insert(user);
 			sqlSession.commit();
 		}catch(Exception ex){
-//			ex.printStackTrace();
 			throw ex; //poner excepcion personalizada
 		}
 		finally {
